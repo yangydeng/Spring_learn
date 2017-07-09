@@ -14,6 +14,6 @@ public class Main {
         Performer performer = apc.getBean("kenny",Instrumentalist.class);
 
         performer.perform();
-        System.out.println("hello world!");
+        
     }
 }
