@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+    <!--默认无输入 -->
+    <bean id="actor_default" class="ActorSinger.ImpAct" />
+
+    <!-- 默认有输入 -->
+    <bean id="actor_input" class="ActorSinger.ImpAct">
+        <constructor-arg value="Monkey." />
+    </bean>
+
+    <bean id="singer_input" class="ActorSinger.ImpSing">
+        <constructor-arg value=" La La La" />
+    </bean>
+
+    <bean id="singer_default" class="ActorSinger.ImpSing" />
+
+
+    <!--下面是使用了一个类以及String作为输入的案例 -->
+    <!-- 两个输入都有 -->
+    <bean id="actorSinger_both" class="ActorSinger.ActorSinger">
+        <constructor-arg ref="singer_input"/>
+        <constructor-arg value="Tiger" />
+    </bean>
+
+    <!-- 只有一个singer输入 -->
+    <bean id="actorSinger_sing" class="ActorSinger.ActorSinger">
+            <constructor-arg ref="singer_input" />
+    </bean>
+
+    <bean id="autoLight" class="ActorSinger.autoLight" init-method="turnOnLight" destroy-method="turnOffLight" />
+
+
+</beans>
